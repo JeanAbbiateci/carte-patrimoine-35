@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+<head>
+    <title>35 : la carte des monuments historiques</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset='utf-8' />
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    <meta content='' name='description' />
+    <meta content='' name='Jean Abbiateci' />
+    <meta property="og:image" content="caro.jpg" />
+
+    <!-- Styles -->
+    <link href='/stylesheets/old_maps/master.css' media='all' rel='stylesheet' type='text/css' />
+
+    <link rel="stylesheet" href="styles/bootstrap.spacelab.min.css" />
+    <link rel="stylesheet" href="styles/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="styles/custom.css" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=53531227790";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class='navbar'>
+
+        <div class='container'>
+            <div class='container'>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class='container-fluid'>
+
+        <div class="fb-like" data-href="http://www.rennes.lemensuel.com/webdocumentaires/data-carte-patrimoine-ille-et-vilaine-rennes-saint-malo.html" data-send="false" data-width="450" data-show-faces="false"></div>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://goo.gl/Tl2L0" data-text="Ille-et-Vilaine : la carte des 531 monuments historiques #rennes #patrimoine #bretagne #ddj" data-lang="fr" data-size="normal" data-count="yes">Tweeter</a>
+
+        <script>
+        ! function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, "script", "twitter-wjs");
+        </script>
+        <div class='row-fluid'>
+
+
+
+            <div class='span4'>
+                <div class='well'>
+                    <h4>
+                        <img src="img/stock_hyperlink-target.png" />&nbsp;Rechercher
+                        <small>(<a id='find_me' href='#'>me localiser</a>)</small>
+                    </h4>
+                    <input class='input-block-level' id='search_address' placeholder='Entrez votre adresse' type='text' />
+                    <label>
+                        <div style='display:none;'>
+                            <select class='input-small' id='search_radius'>
+                                <option value='500000'>2 blocks</option>
+                                <option value='805'>1/2 mile</option>
+                                <option value='1610'>1 mile</option>
+                                <option value='3220'>2 miles</option>
+                            </select>
+                        </div>
+                    </label>
+                    <input class='btn btn-primary' id='search' type='button' value='Rechercher' />
+                    <button class='btn' id='reset'>Tous les résultats</button>
+                </div>
+
+                <div class='well'>
+                    <!-- Once you decide what filter you want, place the HTML code here. The section in the maps_lib.js is also marked. Once you're done, feel free to delete this explanatory section.-->
+
+                    <h4>
+                        <img src="img/stock_hyperlink-target.png" />&nbsp;par catégorie
+                    </h4>
+                    <ul class='inputs-list unstyled'>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='cbType5' />
+                                <span class='filter-box filter-blue'></span>
+                                &nbsp;Sites archéologiques
+                            </label>
+                        </li>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='cbType2' />
+                                <span class='filter-box filter-green'></span>
+                                &nbsp;Châteaux et défense
+                            </label>
+                        </li>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='cbType3' />
+                                <span class='filter-box filter-purple'></span>
+                                &nbsp;Bâtiments religieux
+                            </label>
+                        </li>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='cbType4' />
+                                <span class='filter-box filter-yellow'></span>
+                                &nbsp;Lieux d'habitation
+                            </label>
+                        </li>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='cbType1' />
+                                <span class='filter-box filter-red'></span>
+                                &nbsp; Autres
+                            </label>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class='well'>
+                    <h4>
+                        <img src="img/stock_hyperlink-target.png" />&nbsp;par époque
+                    </h4>
+                    <ul class='inputs-list unstyled'>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='Type1' />Préhistoire et antiquité
+                            </label>
+                        </li>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='Type4' />Moyen-Âge
+                            </label>
+                        </li>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='Type3' />Epoque moderne
+                            </label>
+                        </li>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='Type2' />Epoque contemporaine
+                            </label>
+                        </li>
+                        <li>
+                            <label class='checkbox inline'>
+                                <input type='checkbox' id='Type5' />Non daté
+                            </label>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class='span8'>
+                <div id='map_canvas'></div>
+                <div="leg">
+                    <small>
+                        <img src="img/stock_hyperlink-target.png" height="9" width="9" />Sources : <a href="http://www.data-publica.com/opendata/12225--liste-des-immeubles-proteges-au-titre-des-monuments-historiques-bretagne">Base Mérimée licence Ouverte / <a href="http://fr.wikipedia.org/wiki/Liste_des_monuments_historiques_d'Ille-et-Vilaine">Wikipédia</a> |</a> <a href="https://www.google.com/fusiontables/DataSource?docid=1ybaWUe-VKLGfGblnMlnLPqXDTkQ6VXpS6DlqQEY">Les données</a> | Un projet de <a href="http://www.jeanabbiateci.fr">Jean Abbiateci</a>. Code source <a href="https://github.com/derekeder/FusionTable-Map-Template">: Derek Eder</a>
+                    </small>
+            </div>
+            <p class='pull-right'></p>
+
+        </div>
+        <hr>
+    </div>
+    <br>
+
+    </div>
+
+
+
+    <script type="text/javascript" src="source/jquery.js"></script>
+    <script type="text/javascript" src="source/bootstrap.js"></script>
+    <script type="text/javascript" src="source/jquery.address.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <script type="text/javascript" src="source/jquery.geocomplete.min.js"></script>
+    <script type="text/javascript" src="source/maps_lib.js"></script>
+    <script type='text/javascript'>
+    //<![CDATA[
+    $(window).resize(function() {
+        var h = $(window).height(),
+            offsetTop = 0; // Calculate the top offset
+
+        $('#map_canvas').css('height', (h - offsetTop));
+    }).resize();
+
+    $(function() {
+        MapsLib.initialize();
+        $("#search_address").geocomplete();
+
+        $(':checkbox').click(function() {
+            MapsLib.doSearch();
+        });
+
+        $(':radio').click(function() {
+            MapsLib.doSearch();
+        });
+
+        $('#search_radius').change(function() {
+            MapsLib.doSearch();
+        });
+
+        $('#search').click(function() {
+            MapsLib.doSearch();
+        });
+
+        $('#find_me').click(function() {
+            MapsLib.findMe();
+            return false;
+        });
+
+        $('#reset').click(function() {
+            $.address.parameter('address', '');
+            MapsLib.initialize();
+            return false;
+        });
+
+        $(":text").keydown(function(e) {
+            var key = e.keyCode ? e.keyCode : e.which;
+            if (key == 13) {
+                $('#search').click();
+                return false;
+            }
+        });
+    });
+    //]]>
+    </script>
+</body>
+
+</html>
